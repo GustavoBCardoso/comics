@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.scss'
 
 import { Md5 } from 'ts-md5/dist/md5';
+import { Comics } from './Pages/comics/comics';
 
 function App() {
   const apikey = import.meta.env.VITE_API_PUBLIC_KEY
@@ -18,7 +19,7 @@ function App() {
   console.log('HASH:', hash) */
   return (
     <div className="App">
-      <h1>TESTE ALTERAÇÃO!</h1>
+      <Comics />
     </div>
   )
 }

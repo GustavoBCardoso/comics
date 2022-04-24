@@ -26,7 +26,8 @@ html {
 }
 
 body {
-  background: var(--background);
+  //background: var(--background);
+  background-image: url("../src/assets/img/marvelBackground.gif");
   -webkit-font-smoothing: antialiased;
 }
 
