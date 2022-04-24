@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Md5 } from 'ts-md5';
 import { CardComic } from '../../Components/card-comic/card-comic';
+import { Card, Col, Row } from 'antd';
 import './comics.scss'
 
 export function Comics() {
@@ -35,9 +36,9 @@ export function Comics() {
 
 
   return (
-    <div className="wrap-card-comic">
 
 
+    <Row gutter={16}>
       {
         comics?.map(comic => {
           return (
@@ -45,7 +46,7 @@ export function Comics() {
           )
         })
       }
+    </Row>
 
-    </div>
   )
 }
