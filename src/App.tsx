@@ -1,43 +1,24 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+// import logo from './logo.svg'
+import './App.scss'
+
+import { Md5 } from 'ts-md5/dist/md5';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const apikey = import.meta.env.VITE_API_PUBLIC_KEY
+  const privateKey = import.meta.env.VITE_API_KEY
 
+  const ts = Math.floor(Date.now() / 1000);
+  const hash = Md5.hashStr(ts + privateKey + apikey);
+
+
+  /* console.log('TS:', ts);
+  console.log('apikey:', apikey);
+  console.log('PRIVATE:', privateKey);
+  console.log('HASH:', hash) */
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <h1>INICIO</h1>
     </div>
   )
 }

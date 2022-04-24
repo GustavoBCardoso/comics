@@ -8,12 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "axios": "^0.26.1",
     "json-server": "^0.17.0",
     "moment": "^2.29.3",
-    "react-router-dom": "^6.2.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.2.2",
+    "ts-md5": "^1.2.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
