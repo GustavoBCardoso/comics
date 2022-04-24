@@ -2,10 +2,12 @@
   "name": "comics",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://gustavobcardoso.github.io/comics/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "git subtree --prefix dist origin gh-pages"
   },
   "dependencies": {
     "axios": "^0.26.1",
