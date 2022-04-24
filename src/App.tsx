@@ -18,7 +18,7 @@ function App() {
   console.log('HASH:', hash) */
   return (
     <div className="App">
-      <h1>INICIO</h1>
+      <h1>TESTE ALTERAÇÃO!</h1>
     </div>
   )
 }
