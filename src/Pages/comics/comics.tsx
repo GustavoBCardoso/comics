@@ -18,40 +18,31 @@ export function Comics() {
   const [offset, setOffset] = useState<number>(0);
   const [searchText, setSearchText] = useState<string>('');
 
+  const [updatePaginate, setUpdatePaginate] = useState<boolean>(false);
+
   useEffect(() => {
     getComics(limit, offset);
     setOffset((page + 1) * limit);
     setPage(page + 1);
   }, []);
 
-  /* const getComics = () => {
-    axios.get(
-      import.meta.env.VITE_API,
-      {
-        params: {
-          orderBy: "title",
-          limit: limit,
-          offset: offset,
-          ts: timestamp,
-          apikey: import.meta.env.VITE_API_PUBLIC_KEY,
-          hash: Md5.hashStr(timestamp + import.meta.env.VITE_API_KEY + import.meta.env.VITE_API_PUBLIC_KEY)
-        }
-      }
-    )
-      .then(response => {
-        console.log(response.data);
-        //var comics: Comic[] = comics;
-        var data: Comic[] = comics;
-        data.push(...response.data.data.results)
-        //data.push(response.data.data.results);
+  useEffect(() => {
+    //searchTitle();
+    setOffset(0);
+    setPage(0);
+    if (searchText != '' && searchText != null) {
+      getTitle(limit, offset, searchText);
+    } else {
 
-        //setComics({ ...comics, data });
+      getComics(limit, offset);
+    }
+    setOffset((page + 1) * limit);
+    setPage(page + 1);
+  }, [searchText]);
 
-        setComics(data);
-      })
-      .catch(err => console.log(err));
-    //setComics();
-  } */
+  /* useEffect(() => {
+    loadMore();
+  }, [offset]); */
 
   const loadMore = async () => {
     if (searchText != '' && searchText != null) {
@@ -64,17 +55,22 @@ export function Comics() {
   }
 
   const searchTitle = () => {
-    console.log(searchText)
-    /* setOffset(3);
+    setOffset(0);
     setPage(0);
     if (searchText != '' && searchText != null) {
       getTitle(limit, offset, searchText);
     } else {
       getComics(limit, offset);
-    } */
+    }
   }
 
+  const setValue = (value: string) => {
+    setSearchText(value);
+  }
 
+  const sendEmail = () => {
+
+  }
 
 
   return (<>
@@ -82,13 +78,10 @@ export function Comics() {
     <div className="container site-card-wrapper" id="container">
       <Row justify='center'>
         <div className="search">
-
-
           <Search
             placeholder="Buscar pelo titulo"
             className="search-field"
             allowClear
-            onChange={() => searchTitle()}
             onSearch={setSearchText}
             enterButton
           />
@@ -106,12 +99,18 @@ export function Comics() {
       <Row justify='center'>
         <a className="btDetails cta-btn cta-btn--red cta-btn--solid" onClick={() => loadMore()}>
           <div className="innerFill">
-            Carregar Mais {page}
+            Carregar Mais
           </div>
         </a>
       </Row>
+
+      {/* <Row justify='center'>
+        <a className="btDetails cta-btn cta-btn--red cta-btn--solid" onClick={() => sendEmail()}>
+          <div className="innerFill">
+            Enviar Email
+          </div>
+        </a>
+      </Row> */}
     </div>
-
-
   </>)
 }

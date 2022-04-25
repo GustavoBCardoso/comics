@@ -17,11 +17,23 @@
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;
 
+  .ant-card-actions {
+    border-top: none;
+  }
+}
+
+.featured-item-info-wrap {
+  display: flex;
+
+  .featured-item-text {
+    margin-left: 15px;
+  }
 }
 
 .imgCard {
   max-width: 100%;
   width: 300px;
+  min-width: 300px;
   height: 450px;
   object-fit: cover;
   object-position: bottom left;

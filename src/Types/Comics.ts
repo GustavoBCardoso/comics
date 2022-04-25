@@ -20,6 +20,14 @@ export type Comic = {
   id: number;
   title: string;
   thumbnail: Thumbnail;
+  description: string;
+  urls: Urls[];
+  select: boolean | false;
+}
+
+export type Urls = {
+  type: string;
+  url: string;
 }
 
 export type Thumbnail = {
