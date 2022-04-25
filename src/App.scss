@@ -57,3 +57,220 @@ button {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.cta-btn {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  //margin: 15px auto;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  letter-spacing: 0px;
+  width: auto;
+  /* MVL-1315 - Regression from MVL-1005 */
+  z-index: 10;
+  /* Button variants */
+
+  .innerFill {
+    color: #fff;
+    background-color: #e62429;
+    transition: none;
+    text-align: center;
+    line-height: 16px;
+    padding: 0 35px 0 35px;
+    font: 800 14px/1 "Roboto Bold", "Trebuchet MS", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    display: block;
+    margin: 0;
+    border: 0px;
+  }
+}
+
+.cta-btn .innerFill {
+  padding: 0 35px 0 35px;
+}
+
+.cta-btn div {
+  display: block;
+  text-align: center;
+}
+
+.cta-btn div::before {
+  left: 0;
+  top: 0;
+}
+
+.cta-btn div::after {
+  bottom: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.cta-btn div::before,
+.cta-btn div::after {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.cta-btn::before,
+.cta-btn::after {
+  border-style: solid;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 16px;
+  position: relative;
+}
+
+.cta-btn::before {
+  border-width: 0 0 16px 16px;
+  margin-left: 16px;
+  top: 0;
+}
+
+.cta-btn::after {
+  border-width: 16px 16px 0 0;
+  bottom: 0;
+  margin-right: 16px;
+}
+
+.cta-btn:focus {
+  outline: 2px solid #c6a972;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red::before,
+.cta-btn.cta-btn--outline.cta-btn--red::after {
+  border-color: #e62429;
+  transition: none;
+  width: calc(100% - 16px);
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red::before {
+  border-width: 1px 1px 0 0;
+  right: 0;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red::after {
+  border-width: 0 0 1px 1px;
+  left: 0;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red .innerFill {
+  background-color: transparent;
+  border-left: 1px solid #e62429;
+  border-right: 1px solid #e62429;
+  color: #e62429;
+  opacity: 1;
+  transition: none;
+  text-align: center;
+  line-height: 16px;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red .innerFill::before,
+.cta-btn.cta-btn--outline.cta-btn--red .innerFill::after {
+  background-size: 16px 46px;
+  background-image: repeating-linear-gradient(-45deg, #e62429, #e62429 1px, transparent 1px, transparent 16px);
+  transition: none;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red .innerFill a {
+  display: block;
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red:hover::before,
+.cta-btn.cta-btn--outline.cta-btn--red:hover::after {
+  opacity: 0.4;
+  transform: translate3D(0);
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red:hover .innerFill {
+  border-color: rgba(235, 35, 40, 0.4);
+}
+
+.cta-btn.cta-btn--outline.cta-btn--red:hover .innerFill::before,
+.cta-btn.cta-btn--outline.cta-btn--red:hover .innerFill::after {
+  opacity: 0.4;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red::before,
+.cta-btn.cta-btn--solid.cta-btn--red::after {
+  background-color: #e62429;
+  border-color: #e62429;
+  transition: none;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red::before {
+  margin-left: 15px;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red::after {
+  margin-right: 15px;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill {
+  color: #fff;
+  background-color: #e62429;
+  transition: none;
+  text-align: center;
+  line-height: 16px;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill::before,
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill::after {
+  border-color: #e62429 transparent;
+  transition: none;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red .innerFill img {
+  max-height: 16px;
+  width: auto;
+  text-align: center;
+  margin: 0 auto !important;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover::before,
+.cta-btn.cta-btn--solid.cta-btn--red:hover::after {
+  background-color: #9f0013;
+  border-color: #9f0013;
+  opacity: 1;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover .innerFill {
+  background-color: #9f0013;
+  border-color: #9f0013;
+  color: #fff;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover .innerFill::before {
+  border-color: #9f0013 transparent;
+  opacity: 1;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover .innerFill::after {
+  border-color: #9f0013 transparent;
+  opacity: 1;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover div {
+  background-color: transparent;
+}
+
+.cta-btn.cta-btn--solid.cta-btn--red:hover div::before,
+.cta-btn.cta-btn--solid.cta-btn--red:hover div::after {
+  border-color: transparent;
+}

@@ -1,3 +1,31 @@
 .wrap-card-comic {
   //display: flex;
 }
+
+.site-card-wrapper {
+  padding: 30px;
+  //background: #ececec;
+}
+
+.search {
+  margin-bottom: 25px;
+
+}
+
+.ant-input-search {
+  width: 300px;
+
+  span.ant-input-group-addon {
+    background-color: red;
+
+    button {
+      background: #e62429;
+
+      border-color: #e62429;
+    }
+  }
+}
+
+.row-cards {
+  text-align: -webkit-center;
+}

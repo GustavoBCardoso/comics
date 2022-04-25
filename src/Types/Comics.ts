@@ -18,5 +18,11 @@ export type MarvelComicsResponsData = {
 
 export type Comic = {
   id: number;
-  thumbnail: any[];
+  title: string;
+  thumbnail: Thumbnail;
+}
+
+export type Thumbnail = {
+  path: string;
+  extension: string;
 }

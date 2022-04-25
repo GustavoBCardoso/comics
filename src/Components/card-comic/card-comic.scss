@@ -17,24 +17,29 @@
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: .25rem;
 
-  .card-img-top {
-    width: 100%;
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
-  }
-
-  img {
-    vertical-align: middle;
-    border-style: none;
-  }
-
 }
 
-*,
+.imgCard {
+  max-width: 100%;
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  object-position: bottom left;
+}
+
+
+.ant-card-actions>li>span a:not(.ant-btn),
+.ant-card-actions>li>span>.anticon {
+  width: 50%;
+}
+
+
+
+/* *,
 ::after,
 ::before {
   box-sizing: border-box;
-}
+} */
 
 
 .row {
