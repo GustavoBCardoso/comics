@@ -22,7 +22,6 @@
 
 <!-- ![](https://github.com/GustavoBCardoso/rocketseat-nlw/blob/master/docs/ecoleta-web.gif?raw=true) -->
 
-### :information_source: Como Usar
 
 ### :information_source: Como Usar
 
