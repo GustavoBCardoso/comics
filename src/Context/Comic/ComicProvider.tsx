@@ -30,15 +30,14 @@ export function ComicProvider({ children }: { children: JSX.Element }) {
       }
     })
       .then(response => {
-        if (!comics) {
+        if (offset == 0) {
           setComics(response.data.data.results);
         } else {
-          let data: Comic[] = comics;
-          const res: Comic[] = response.data.data.results;
-          res.forEach(function (item, i) {
-            data.push(item)
-          })
-          setComics(data);
+          if (!comics) {
+            setComics(response.data.data.results);
+          } else {
+            setComics([...comics, ...response.data.data.results]);
+          }
         }
       })
       .catch(err => {
@@ -70,7 +69,6 @@ export function ComicProvider({ children }: { children: JSX.Element }) {
   }
 
   const getTitle = async (limit: number, offset: number, title: string) => {
-    console.log(title)
     await axios.get(API_URL, {
       params: {
         title: title,
@@ -83,16 +81,14 @@ export function ComicProvider({ children }: { children: JSX.Element }) {
       }
     })
       .then(response => {
-        //setComics(response.data.data.results);
-        if (!comics) {
+        if (offset == 0) {
           setComics(response.data.data.results);
         } else {
-          let data: Comic[] = comics;
-          const res: Comic[] = response.data.data.results;
-          res.forEach(function (item, i) {
-            data.push(item)
-          })
-          setComics(data);
+          if (!comics) {
+            setComics(response.data.data.results);
+          } else {
+            setComics([...comics, ...response.data.data.results]);
+          }
         }
       })
       .catch(err => {

@@ -17,61 +17,77 @@ export function Comics() {
   const [page, setPage] = useState<number>(0)
   const [offset, setOffset] = useState<number>(0);
   const [searchText, setSearchText] = useState<string>('');
+  const [typeLoad, setTypeLoad] = useState<boolean>(false)
 
   const [updatePaginate, setUpdatePaginate] = useState<boolean>(false);
 
-  useEffect(() => {
-    getComics(limit, offset);
-    setOffset((page + 1) * limit);
-    setPage(page + 1);
-  }, []);
-
-  useEffect(() => {
-    //searchTitle();
-    setOffset(0);
-    setPage(0);
-    if (searchText != '' && searchText != null) {
-      getTitle(limit, offset, searchText);
-    } else {
-
+  /*   useEffect(() => {
       getComics(limit, offset);
+      setOffset((page + 1) * limit);
+      setPage(page + 1);
+    }, []); */
+
+  useEffect(() => {
+    if (searchText != '' && searchText != null) {
+      if (typeLoad) {
+        setOffset((page + 1) * limit);
+        setPage(page + 1);
+        getTitle(limit, (((page + 1) + 1) * limit), searchText);
+      } else {
+        setTypeLoad(true);
+        setOffset(0);
+        setPage(0);
+        getTitle(limit, 0, searchText);
+      }
+
+    } else {
+      if (typeLoad) {
+
+        setTypeLoad(false);
+        setOffset(0);
+        setPage(0);
+        getComics(limit, 0);
+      } else {
+        setOffset((page + 1) * limit);
+        setPage(page + 1);
+        getComics(limit, (((page + 1) + 1) * limit));
+      }
     }
-    setOffset((page + 1) * limit);
-    setPage(page + 1);
   }, [searchText]);
 
-  /* useEffect(() => {
-    loadMore();
-  }, [offset]); */
+
+
+  const updatePageOffset = (action: boolean) => {
+    if (action) {
+      setOffset((page + 1) * limit);
+      setPage(page + 1);
+    } else {
+      setOffset(0);
+      setPage(0);
+    }
+
+  }
+
+
+
 
   const loadMore = async () => {
-    if (searchText != '' && searchText != null) {
-      await getTitle(limit, offset, searchText);
+    if (typeLoad) {
+      setOffset((page + 1) * limit);
+      setPage(page + 1);
+      await getTitle(limit, (((page + 1) + 1) * limit), searchText);
     } else {
-      await getComics(limit, offset);
+      setOffset((page + 1) * limit);
+      setPage(page + 1);
+      await getComics(limit, (((page + 1) + 1) * limit));
     }
-    setOffset((page + 1) * limit);
-    setPage(page + 1);
-  }
-
-  const searchTitle = () => {
-    setOffset(0);
-    setPage(0);
-    if (searchText != '' && searchText != null) {
-      getTitle(limit, offset, searchText);
-    } else {
-      getComics(limit, offset);
-    }
-  }
-
-  const setValue = (value: string) => {
-    setSearchText(value);
+    //setOffset((page + 1) * limit);
+    //setPage(page + 1);
   }
 
   const sendEmail = () => {
 
   }
-
 
   return (<>
 
